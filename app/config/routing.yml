@@ -1,0 +1,72 @@
+#app:
+    #resource: '@AppBundle/Controller/'
+    #type: annotation
+
+
+#Item
+homepage:
+    path:     /
+    defaults: { _controller: AppBundle:Item:list }
+
+item_show:
+    path: /item/show/{id}
+    defaults: { _controller: AppBundle:Item:show }
+
+item_edit:
+    path: /item/edit/{id}
+    defaults: { _controller: AppBundle:Item:edit }
+
+item_list:
+    path: /item/list
+    defaults: { _controller: AppBundle:Item:list }
+
+item_create:
+    path: /item/create
+    defaults: { _controller: AppBundle:Item:create }
+
+item_remove:
+    path: /item/remove/{id}
+    defaults: { _controller: AppBundle:Item:remove }
+
+#Category
+category_show:
+    path: /category/show/{id}
+    defaults: { _controller: AppBundle:Category:show }
+
+category_edit:
+    path: /category/edit/{id}
+    defaults: { _controller: AppBundle:Category:edit }
+
+category_list:
+    path: /category/list
+    defaults: { _controller: AppBundle:Category:list }
+
+category_create:
+    path: /category/create
+    defaults: { _controller: AppBundle:Category:create }
+
+category_remove:
+    path: /category/remove/{id}
+    defaults: { _controller: AppBundle:Category:remove }
+
+
+#Attribute
+attribute_show:
+    path: /attribute/show/{id}
+    defaults: { _controller: AppBundle:Attribute:show }
+
+attribute_edit:
+    path: /attribute/edit/{id}
+    defaults: { _controller: AppBundle:Attribute:edit }
+
+attribute_list:
+    path: /attribute/list
+    defaults: { _controller: AppBundle:Attribute:list }
+
+attribute_create:
+    path: /attribute/create
+    defaults: { _controller: AppBundle:Attribute:create }
+
+attribute_remove:
+    path: /attribute/remove/{id}
+    defaults: { _controller: AppBundle:Attribute:remove }

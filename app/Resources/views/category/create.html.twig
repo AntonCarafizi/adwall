@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block title %}Create category{% endblock %}
+{% block body %}
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Parent</td>
+            <td>Name</td>
+            <td></td>
+            <td></td>
+        </tr>
+    {% for row in categories %}
+        <tr>
+            <td>{{ row.id }}</td>
+            <td>{{ row.parent }}</td>
+            <td>{{ row.name }}</td>
+            <td><a href="{{ path('category_edit', {'id': row.id}) }}">Edit</a></td>
+            <td><a href="{{ path('category_remove', {'id': row.id}) }}">Delete</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+    <h1>Create category</h1>
+    {{ form_start(form) }}
+    {{ form_end(form) }}
+    {{ response }}
+{% endblock %}

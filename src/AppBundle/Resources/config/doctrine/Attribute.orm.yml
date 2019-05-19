@@ -1,0 +1,22 @@
+AppBundle\Entity\Attribute:
+    type: entity
+    table: attribute
+    repositoryClass: AppBundle\Repository\AttributeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '50'
+    lifecycleCallbacks: {  }
+    manyToOne:
+        category:
+            targetEntity: Category
+            inversedBy: attributes
+            joinColumn:
+                name: category_id
+                referencedColumnName: id

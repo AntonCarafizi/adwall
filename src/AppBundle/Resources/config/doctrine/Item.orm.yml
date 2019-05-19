@@ -1,0 +1,47 @@
+AppBundle\Entity\Item:
+    type: entity
+    table: item
+    repositoryClass: AppBundle\Repository\ItemRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        description:
+            type: text
+        price:
+            type: float
+        isActive:
+            type: boolean
+        date:
+            type: datetime
+        zipCode:
+            type: string
+            length: 5
+        address:
+            type: string
+            length: 100
+        phoneNumber:
+            type: string
+            length: 20
+        images:
+            type: text
+    lifecycleCallbacks: {  }
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: items
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+        category:
+            targetEntity: Category
+            inversedBy: items
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
