@@ -15,9 +15,6 @@ AppBundle\Entity\Category:
             unique: true
     lifecycleCallbacks: {  }
     oneToMany:
-        attributes:
-            targetEntity: Attribute
-            mappedBy: category
         children:
             targetEntity: Category
             mappedBy: parent

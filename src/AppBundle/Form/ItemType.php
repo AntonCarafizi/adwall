@@ -5,8 +5,6 @@ namespace AppBundle\Form;
 use AppBundle\Entity\Category;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -40,9 +38,6 @@ class ItemType extends AbstractType
                 'label' => 'Price: ',
                 'required' => true,
             ])
-            ->add('isActive', CheckboxType::class, [
-                'label' => 'Is active: ',
-            ])
             ->add('zipCode', TextType::class, [
                 'label' => 'Zip Code: ',
             ])
@@ -51,14 +46,6 @@ class ItemType extends AbstractType
             ])
             ->add('phoneNumber', TextType::class, [
                 'label' => 'Phone number: ',
-            ])
-            ->add('images', FileType::class, [
-                'attr' => [
-                    'accept' => 'image/*',
-                    'multiple' => 'multiple'
-                ],
-                'label' => 'Upload Images: ',
-                'required' => false,
             ])
             ->add('save', SubmitType::class, [
                 //'label' => 'Create item',

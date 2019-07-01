@@ -19,7 +19,7 @@ AppBundle\Entity\User:
             unique: true
         password:
             type: string
-            length: '10'
+            length: '100'
             unique: true
     lifecycleCallbacks: {  }
     oneToMany:

@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block title %}Create category{% endblock %}
 {% block body %}
+    <header>
+        <h1>ADWALL - just add your ad!</h1>
+    </header>
+    <main>
     <table>
         <tr>
             <td>ID</td>
@@ -23,4 +27,6 @@
     {{ form_start(form) }}
     {{ form_end(form) }}
     {{ response }}
+    </main>
+    <footer>Adwall</footer>
 {% endblock %}

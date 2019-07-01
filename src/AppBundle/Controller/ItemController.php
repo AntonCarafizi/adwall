@@ -2,7 +2,9 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Image;
 use AppBundle\Entity\Item;
+use AppBundle\Form\ImageType;
 use AppBundle\Form\ItemType;
 use AppBundle\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -32,7 +34,6 @@ class ItemController extends Controller
         $form->get('title')->setData($item->getTitle());
         $form->get('description')->setData($item->getDescription());
         $form->get('price')->setData($item->getPrice());
-        $form->get('isActive')->setData($item->getIsActive());
         $form->get('category')->setData($item->getCategory());
         $form->get('save')->setData(['label' => 'Save Item']);
         $form->handleRequest($request);
@@ -40,6 +41,7 @@ class ItemController extends Controller
             $em->persist($item); // tells Doctrine you want to (eventually) save the Category (no queries yet)
             $em->flush(); // actually executes the queries (i.e. the INSERT query)
             $response->setContent('Saved item with id ' . $item->getId());
+            return $this->redirectToRoute('item_show', ['id' => $item->getId()]);
         }
         return $this->render('item/edit.html.twig', [
             'form' => $form->createView(),
@@ -56,13 +58,17 @@ class ItemController extends Controller
         //var_dump($form->getData()); die();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $file = $item->getImages();
-            $fileName = $fileUploader->upload($file);
-            $item->setImages($fileName);
-            //var_dump($request->files); die();
             $em->persist($item); // tells Doctrine you want to (eventually) save the Category (no queries yet)
             $em->flush(); // actually executes the queries (i.e. the INSERT query)
-            $response->setContent('Saved new item with id ' . $item->getId());
+            //$image = new Image();
+            //$form = $this->createForm(ImageType::class, $image);
+            //$form->handleRequest($request);
+            //if ($form->isSubmitted() && $form->isValid()) {
+                $em->persist($item); // tells Doctrine you want to (eventually) save the Category (no queries yet)
+                $em->flush(); // actually executes the queries (i.e. the INSERT query)
+                $response->setContent('Saved new item with id ' . $item->getId());
+                return $this->redirectToRoute('item_show', ['id' => $item->getId()]);
+            //}
         }
 
         return $this->render('item/create.html.twig', [

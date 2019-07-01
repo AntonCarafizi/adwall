@@ -15,4 +15,9 @@ AppBundle\Entity\Image:
             nullable: true
             unique: true
     lifecycleCallbacks: {  }
+    manyToOne:
+        item:
+            targetEntity: Item
+            inversedBy: images
+
 

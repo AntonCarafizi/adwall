@@ -3,11 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -29,11 +33,16 @@ class User
      */
     private $password;
 
+    private $plainPassword;
+
+    private $roles;
+
     private $items;
 
     public function __construct()
     {
         $this->items = new ArrayCollection();
+        $this->roles = ['ROLE_USER'];
     }
 
     /**
@@ -116,6 +125,39 @@ class User
     public function getPassword()
     {
         return $this->password;
+    }
+
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    public function getSalt()
+    {
+        // The bcrypt and argon2i algorithms don't require a separate salt.
+        // You *may* need a real salt if you choose a different encoder.
+        return null;
+    }
+
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    public function eraseCredentials()
+    {
     }
 }
 

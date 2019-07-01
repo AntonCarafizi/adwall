@@ -1,7 +1,10 @@
 #app:
     #resource: '@AppBundle/Controller/'
     #type: annotation
-
+#Login
+login:
+    path:     /login
+    defaults: { _controller: AppBundle:Security:login }
 
 #Item
 homepage:
@@ -26,7 +29,7 @@ item_create:
 
 item_remove:
     path: /item/remove/{id}
-    defaults: { _controller: AppBundle:Item:remove }
+    defaults: { _controller: AppBundle:Item:remove, _format: json }
 
 #Category
 category_show:
@@ -70,3 +73,25 @@ attribute_create:
 attribute_remove:
     path: /attribute/remove/{id}
     defaults: { _controller: AppBundle:Attribute:remove }
+
+
+#User
+user_show:
+    path: /user/show/{id}
+    defaults: { _controller: AppBundle:User:show }
+
+user_edit:
+    path: /user/edit/{id}
+    defaults: { _controller: AppBundle:User:edit }
+
+user_list:
+    path: /user/list
+    defaults: { _controller: AppBundle:User:list }
+
+user_create:
+    path: /user/create
+    defaults: { _controller: AppBundle:User:create }
+
+user_remove:
+    path: /user/remove/{id}
+    defaults: { _controller: AppBundle:User:remove }

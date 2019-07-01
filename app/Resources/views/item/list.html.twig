@@ -21,7 +21,6 @@
                 <td>{{ row.title }}</td>
                 <td>{{ row.description }}</td>
                 <td>{{ row.price }}</td>
-                <td>{{ row.isActive }}</td>
                 <td>{{ row.date|date('d-m-Y H:i:s') }}</td>
                 <td><a href="{{ path('item_edit', {'id': row.id}) }}">Edit</a></td>
                 <td><a href="{{ path('item_remove', {'id': row.id}) }}">Delete</a></td>

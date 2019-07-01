@@ -35,11 +35,6 @@ class Item
     private $price;
 
     /**
-     * @var boolean
-     */
-    private $isActive;
-
-    /**
      * @var datetime
      */
     private $date;
@@ -69,6 +64,7 @@ class Item
     {
         $this->values = new ArrayCollection();
         $this->date = new \DateTime();
+        $this->images = new ArrayCollection();
     }
 
     /**
@@ -153,29 +149,6 @@ class Item
         return $this->price;
     }
 
-    /**
-     * Set IsActive
-     *
-     * @param boolean $isActive
-     *
-     * @return Item
-     */
-    public function setIsActive($isActive)
-    {
-        $this->isActive = $isActive;
-
-        return $this;
-    }
-
-    /**
-     * Get IsActive
-     *
-     * @return boolean
-     */
-    public function getIsActive()
-    {
-        return $this->isActive;
-    }
 
     /**
      * Set user

@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block title %}Create Item{% endblock %}
 {% block body %}
+    <header>
+        <h1>ADWALL - just add your ad!</h1>
+    </header>
     <table>
         <tr>
             <td>ID</td>
@@ -8,7 +11,6 @@
             <td>Title</td>
             <td>Description</td>
             <td>Price</td>
-            <td>Is Active</td>
             <td>Created</td>
             <td></td>
             <td></td>
@@ -20,7 +22,6 @@
                 <td>{{ row.title }}</td>
                 <td>{{ row.description }}</td>
                 <td>{{ row.price }}</td>
-                <td>{{ row.isActive }}</td>
                 <td>{{ row.date|date('d-m-Y H:i:s') }}</td>
                 <td><a href="{{ path('item_edit', {'id': row.id}) }}">Edit</a></td>
                 <td><a href="{{ path('item_remove', {'id': row.id}) }}">Delete</a></td>

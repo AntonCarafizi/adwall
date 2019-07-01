@@ -16,8 +16,6 @@ AppBundle\Entity\Item:
             type: text
         price:
             type: float
-        isActive:
-            type: boolean
         date:
             type: datetime
         zipCode:
@@ -29,8 +27,6 @@ AppBundle\Entity\Item:
         phoneNumber:
             type: string
             length: 20
-        images:
-            type: text
     lifecycleCallbacks: {  }
     manyToOne:
         user:
@@ -45,3 +41,7 @@ AppBundle\Entity\Item:
             joinColumn:
                 name: category_id
                 referencedColumnName: id
+    oneToMany:
+        images:
+            targetEntity: Image
+            mappedBy: item
